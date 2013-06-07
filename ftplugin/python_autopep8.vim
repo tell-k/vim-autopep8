@@ -52,12 +52,12 @@ if !exists("*Autopep8()")
         endif
 
         if exists("g:autopep8_aggresive")
-            let s:autopep8_max_line_length=" --aggresive"
+            let s:autopep8_aggressive=" --aggresive"
         else
-            let s:autopep8_max_line_length=""
+            let s:autopep8_aggressive=""
         endif
 
-        let s:execmdline=s:autopep8_cmd.s:autopep8_pep8_passes.s:autopep8_selects.s:autopep8_ignores.s:autopep8_max_line_length..s:autopep8_aggressive." ".expand('%:p')
+        let s:execmdline=s:autopep8_cmd.s:autopep8_pep8_passes.s:autopep8_selects.s:autopep8_ignores.s:autopep8_max_line_length.s:autopep8_aggressive." ".expand('%:p')
         let s:tmpfile = tempname()
         let s:index = 0
         try
