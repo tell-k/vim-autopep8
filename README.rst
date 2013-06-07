@@ -2,17 +2,13 @@
 vim-autopep8
 ========================
 
-Description
-=====================
-
 vim-autopep8 is a Vim pluign that runs currentry open file throuh autopep8.
-
 autopep8 automatically formats Python code to conform to the PEP 8 style guide.
 
 Required
 =====================
 
-`autopep8 <https://pypi.python.org/pypi/autopep8/>`_
+* `autopep8 <https://pypi.python.org/pypi/autopep8/>`_
 
 Installation
 =====================
