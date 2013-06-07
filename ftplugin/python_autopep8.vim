@@ -62,7 +62,7 @@ if !exists("*Autopep8()")
         let s:index = 0
         try
             " current cursor
-            let current_cursor = getpos(".")
+            let s:current_cursor = getpos(".")
             " write to temporary file
             silent execute "!". s:execmdline . " > " . s:tmpfile
             " current buffer all delete
@@ -72,8 +72,10 @@ if !exists("*Autopep8()")
                 call append(s:index, line)
                 let s:index = s:index + 1
             endfor
+            " remove last linebreak.
+            silent execute ":" . s:index . "," . s:index . "s/\\n$//g"
             " restore cursor
-            call setpos('.', current_cursor)
+            call setpos('.', s:current_cursor)
             echo "Fixed with autopep8 this file."
         finally
             " file close
