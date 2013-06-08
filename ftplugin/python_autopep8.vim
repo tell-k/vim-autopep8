@@ -57,14 +57,19 @@ if !exists("*Autopep8()")
             let s:autopep8_aggressive=""
         endif
 
-        let s:execmdline=s:autopep8_cmd.s:autopep8_pep8_passes.s:autopep8_selects.s:autopep8_ignores.s:autopep8_max_line_length.s:autopep8_aggressive." ".expand('%:p')
+        let s:execmdline=s:autopep8_cmd.s:autopep8_pep8_passes.s:autopep8_selects.s:autopep8_ignores.s:autopep8_max_line_length.s:autopep8_aggressive
         let s:tmpfile = tempname()
+        let s:tmpdiff = tempname()
         let s:index = 0
         try
             " current cursor
             let s:current_cursor = getpos(".")
             " write to temporary file
-            silent execute "!". s:execmdline . " > " . s:tmpfile
+            silent execute "!". s:execmdline . " " . expand('%:p') . " > " . s:tmpfile
+            if !exists("g:autopep8_disable_show_diff")
+                silent execute "!". s:execmdline . " --diff  " . expand('%:p') . " > " . s:tmpdiff
+            endif
+
             " current buffer all delete
             execute "%d"
             " read temp file. and write to current buffer.
@@ -76,11 +81,25 @@ if !exists("*Autopep8()")
             silent execute ":" . s:index . "," . s:index . "s/\\n$//g"
             " restore cursor
             call setpos('.', s:current_cursor)
+
+            " show diff
+            if !exists("g:autopep8_disable_show_diff")
+              botright new 15
+              setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+              silent execute '$read ' . s:tmpdiff
+              setlocal nomodifiable
+              setlocal nu
+              setlocal filetype=diff
+            endif
+
             echo "Fixed with autopep8 this file."
         finally
             " file close
             if filewritable(s:tmpfile)
                 call delete(s:tmpfile)
+            endif
+            if filewritable(s:tmpdiff)
+                call delete(s:tmpdiff)
             endif
         endtry
 
