@@ -2,7 +2,7 @@
 vim-autopep8
 ========================
 
-vim-autopep8 is a Vim pluign that runs currentry open file throuh autopep8.
+vim-autopep8 is a Vim plugin that applies autopep8 to your current file.
 autopep8 automatically formats Python code to conform to the PEP 8 style guide.
 
 Required
@@ -13,7 +13,7 @@ Required
 Installation
 =====================
 
-simply put the contents of this repository in your ~/.vim/bundle directory.
+Simply put the contents of this repository in your ~/.vim/bundle directory.
 
 Usage
 =====================
@@ -56,13 +56,13 @@ Set maximum allowed line length (default: 79)
 
  let g:autopep8_max_line_length=79
 
-enable possibly unsafe changes (E711, E712) (default: non defined)
+Enable possibly unsafe changes (E711, E712) (default: non defined)
 
 :: 
 
  let g:autopep8_aggresive=1
 
-disable show diff window
+Disable show diff window
 
 :: 
 
