@@ -57,7 +57,7 @@ Fix only these errors/warnings (e.g. E4,W)
 <
 
 Maximum number of additional pep8 passes (default: 100)
-> 
+>
  let g:autopep8_pep8_passes=100
 <
 
@@ -77,6 +77,6 @@ Disable show diff window
 <
 
 ==============================================================================
-6. license                                      *autopep8-license*
+6. license                                                  *autopep8-license*
 
 MIT license
