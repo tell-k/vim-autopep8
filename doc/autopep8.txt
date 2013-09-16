@@ -1,0 +1,82 @@
+*autopep8.txt*   
+
+Author: tell-k  (ffk2005 AT gmail DOT com)
+For Vim version 1.0.1 and above
+Last change: 2013 Jun 8
+
+1. Overview         |autopep8-overview|
+2. Required         |autopep8-required|
+3. Installation     |autopep8-installation|
+4. Usage            |autopep8-usage|
+5. Customization    |autopep8-customization|
+6. License          |autopep8-license|
+
+==============================================================================
+1. Overview                                                *autopep8-overview*
+
+vim-autopep8 is a Vim plugin that applies autopep8 to your current file.
+autopep8 automatically formats Python code to conform to the PEP 8 style guide.
+
+==============================================================================
+2. Required                                                *autopep8-required*
+
+autopep8
+>
+    https://pypi.python.org/pypi/autopep8/
+<
+
+==============================================================================
+3. Installation                                        *autopep8-installation*
+
+Simply put the contents of this repository in your ~/.vim/bundle directory.
+
+==============================================================================
+4. Usage                                                      *autopep8-usage*
+
+1. Open Python file.
+2. Press <F8> to run autopep8 on it
+
+==============================================================================
+5. Customization                                      *autopep8-customization*
+
+If you don't want to use the <F8> key for autopep8, simply remap it to
+another key.  It autodetects whether it has been remapped and won't register
+the <F8> key if so.  For example, to remap it to <F3> instead, use:
+>
+ autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
+<
+
+Do not fix these errors/warnings (default: E226,E24,W6)
+>
+ let g:autopep8_ignore="E501,W293"
+<
+
+Fix only these errors/warnings (e.g. E4,W)
+>
+ let g:autopep8_select="E501,W293"
+<
+
+Maximum number of additional pep8 passes (default: 100)
+> 
+ let g:autopep8_pep8_passes=100
+<
+
+Set maximum allowed line length (default: 79)
+>
+ let g:autopep8_max_line_length=79
+<
+
+Enable possibly unsafe changes (E711, E712) (default: non defined)
+>
+ let g:autopep8_aggresive=1
+<
+
+Disable show diff window
+>
+ let g:autopep8_disable_show_diff=1
+<
+
+==============================================================================
+6. license                                      *autopep8-license*
+
+MIT license
