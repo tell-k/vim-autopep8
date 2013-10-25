@@ -17,7 +17,7 @@ let b:loaded_autopep8_ftplugin=1
 if !exists("*Autopep8()")
     function Autopep8()
         if exists("g:autopep8_cmd")
-            let s:autope8_cmd=g:autopep8_cmd
+            let s:autopep8_cmd=g:autopep8_cmd
         else
             let s:autopep8_cmd="autopep8"
         endif
@@ -46,7 +46,7 @@ if !exists("*Autopep8()")
         endif
 
         if exists("g:autopep8_max_line_length")
-            let s:autopep8_max_line_length=" --max_line_length=".g:autopep8_max_line_length
+            let s:autopep8_max_line_length=" --max-line-length=".g:autopep8_max_line_length
         else
             let s:autopep8_max_line_length=""
         endif
