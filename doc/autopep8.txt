@@ -1,8 +1,8 @@
 *autopep8.txt*   
 
 Author: tell-k  (ffk2005 AT gmail DOT com)
-For Vim version 1.0.1 and above
-Last change: 2013 Jun 8
+For Vim version 1.0.3 and above
+Last change: 2013 Oct 26
 
 1. Overview         |autopep8-overview|
 2. Required         |autopep8-required|
