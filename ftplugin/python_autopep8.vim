@@ -65,9 +65,9 @@ if !exists("*Autopep8()")
             " current cursor
             let s:current_cursor = getpos(".")
             " write to temporary file
-            silent execute "!". s:execmdline . " " . expand('%:p') . " > " . s:tmpfile
+            silent execute "!". s:execmdline . " \"" . expand('%:p') . "\" > " . s:tmpfile
             if !exists("g:autopep8_disable_show_diff")
-                silent execute "!". s:execmdline . " --diff  " . expand('%:p') . " > " . s:tmpdiff
+                silent execute "!". s:execmdline . " --diff  \"" . expand('%:p') . "\" > " . s:tmpdiff
             endif
 
             " current buffer all delete
@@ -84,7 +84,7 @@ if !exists("*Autopep8()")
 
             " show diff
             if !exists("g:autopep8_disable_show_diff")
-              botright new 15
+              botright new autopep8
               setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
               silent execute '$read ' . s:tmpdiff
               setlocal nomodifiable
