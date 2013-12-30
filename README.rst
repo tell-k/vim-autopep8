@@ -65,7 +65,7 @@ Enable possibly unsafe changes (E711, E712) (default: non defined)
 
 :: 
 
- let g:autopep8_aggresive=1
+ let g:autopep8_aggressive=1
 
 Disable show diff window
 

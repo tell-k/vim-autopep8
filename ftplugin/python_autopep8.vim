@@ -51,8 +51,8 @@ if !exists("*Autopep8()")
             let s:autopep8_max_line_length=""
         endif
 
-        if exists("g:autopep8_aggresive")
-            let s:autopep8_aggressive=" --aggresive"
+        if exists("g:autopep8_aggressive")
+            let s:autopep8_aggressive=" --aggressive "
         else
             let s:autopep8_aggressive=""
         endif
