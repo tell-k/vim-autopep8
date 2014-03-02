@@ -1,8 +1,8 @@
 "=========================================================
 " File:        python_autopep8.vim
 " Author:      tell-k <ffk2005[at]gmail.com>
-" Last Change: 30-Dec-2013.
-" Version:     1.0.3
+" Last Change: 3-Mar-2014.
+" Version:     1.0.4
 " WebPage:     https://github.com/tell-k/vim-autopep8
 " License:     MIT Licence
 "==========================================================
@@ -92,7 +92,11 @@ if !exists("*Autopep8()")
               setlocal filetype=diff
             endif
 
-            echo "Fixed with autopep8 this file."
+            hi Green ctermfg=green
+            echohl Green
+            echon "Fixed with autopep8 this file."
+            echohl
+
         finally
             " file close
             if filewritable(s:tmpfile)
@@ -112,5 +116,6 @@ endif
 if !exists("no_plugin_maps") && !exists("no_autopep8_maps")
     if !hasmapto('Autopep8(')
         noremap <buffer> <F8> :call Autopep8()<CR>
+        command! -bar Autopep8 call Autopep8() 
     endif
 endif

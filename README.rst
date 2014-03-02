@@ -23,8 +23,16 @@ Documentaion(Read The Docs)
 Usage
 =====================
 
+shortcut
+
 1. Open Python file.
 2. Press <F8> to run autopep8 on it
+
+call function
+
+:: 
+
+ :Autopep8
 
 Customization
 =====================
