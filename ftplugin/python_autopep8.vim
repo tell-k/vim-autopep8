@@ -71,7 +71,7 @@ if !exists("*Autopep8()")
             endif
 
             " current buffer all delete
-            execute "%d"
+            silent execute "%d"
             " read temp file. and write to current buffer.
             for line in readfile(s:tmpfile)
                 call append(s:index, line)
