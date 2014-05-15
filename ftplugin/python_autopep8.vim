@@ -56,8 +56,14 @@ if !exists("*Autopep8()")
         else
             let s:autopep8_aggressive=""
         endif
+        
+        if exists("g:autopep8_indent_size")
+            let s:autopep8_indent_size=" --indent-size=".g:autopep8_indent_size
+        else
+            let s:autopep8_indent_size=""
+        endif
 
-        let s:execmdline=s:autopep8_cmd.s:autopep8_pep8_passes.s:autopep8_selects.s:autopep8_ignores.s:autopep8_max_line_length.s:autopep8_aggressive
+        let s:execmdline=s:autopep8_cmd.s:autopep8_pep8_passes.s:autopep8_selects.s:autopep8_ignores.s:autopep8_max_line_length.s:autopep8_aggressive.s:autopep8_indent_size
         let s:tmpfile = tempname()
         let s:tmpdiff = tempname()
         let s:index = 0

@@ -73,7 +73,13 @@ Enable possibly unsafe changes (E711, E712) (default: non defined)
 
 :: 
 
- let g:autopep8_aggressive=1
+ let g:autopep8_aggressive=1 
+
+Number of spaces per indent level (default: 4)
+
+:: 
+
+ let g:autopep8_indent_size=2
 
 Disable show diff window
 
