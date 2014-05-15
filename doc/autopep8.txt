@@ -2,7 +2,7 @@
 
 Author: tell-k  (ffk2005 AT gmail DOT com)
 For Vim version 7 and above
-Last change: 2014 Mar 3
+Last change: 2014 May 15
 
 1. Overview         |autopep8-overview|
 2. Required         |autopep8-required|
