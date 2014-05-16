@@ -14,8 +14,8 @@ if exists("b:loaded_autopep8_ftplugin")
 endif
 let b:loaded_autopep8_ftplugin=1
 
-if !exists("*Autopep8()")
-    function Autopep8()
+if !exists("*Autopep8(args)")
+    function Autopep8(args)
         if exists("g:autopep8_cmd")
             let s:autopep8_cmd=g:autopep8_cmd
         else
@@ -63,7 +63,7 @@ if !exists("*Autopep8()")
             let s:autopep8_indent_size=""
         endif
 
-        let s:execmdline=s:autopep8_cmd.s:autopep8_pep8_passes.s:autopep8_selects.s:autopep8_ignores.s:autopep8_max_line_length.s:autopep8_aggressive.s:autopep8_indent_size
+        let s:execmdline=s:autopep8_cmd.s:autopep8_pep8_passes.s:autopep8_selects.s:autopep8_ignores.s:autopep8_max_line_length.s:autopep8_aggressive.s:autopep8_indent_size.a:args
         let s:tmpfile = tempname()
         let s:tmpdiff = tempname()
         let s:index = 0
