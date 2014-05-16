@@ -15,7 +15,7 @@ Installation
 
 Simply put the contents of this repository in your ~/.vim/bundle directory.
 
-Documentaion(Read The Docs)
+Documentation (Read The Docs)
 ==============================
 
 * https://vim-autopep8.readthedocs.org/en/latest/
