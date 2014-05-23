@@ -44,6 +44,12 @@ call function
  :Autopep8
 <
 
+with arguments
+
+>
+ :call Autopep8(" --range 5 10")
+<
+
 ==============================================================================
 5. Customization                                      *autopep8-customization*
 

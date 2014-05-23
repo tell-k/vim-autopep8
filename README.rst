@@ -34,6 +34,12 @@ call function
 
  :Autopep8
 
+with arguments
+
+::
+
+ :call Autopep8(" --range 1 5")
+
 Customization
 =====================
 
