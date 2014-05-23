@@ -47,7 +47,11 @@ call function
 with arguments
 
 >
- :call Autopep8(" --range 5 10")
+ :Autopep8 --range 1 5
+
+ or 
+
+ :call Autopep8(" --range 1 5")
 <
 
 ==============================================================================
