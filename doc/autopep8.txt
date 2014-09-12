@@ -25,6 +25,11 @@ autopep8
     https://pypi.python.org/pypi/autopep8/
 <
 
+vim-operator-user is recommended
+>
+    https://github.com/kana/vim-operator-user
+<
+
 ==============================================================================
 3. Installation                                        *autopep8-installation*
 
@@ -62,6 +67,12 @@ another key.  It autodetects whether it has been remapped and won't register
 the <F8> key if so.  For example, to remap it to <F3> instead, use:
 >
  autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
+<
+
+If you want to use it as an operator as well, which will automatically accept
+a range just like other line-based operators, map it like so:
+>
+ autocmd FileType python map <buffer> <F3> <Plug>(operator-autopep8)
 <
 
 Do not fix these errors/warnings (default: E226,E24,W6)
