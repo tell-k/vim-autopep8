@@ -99,6 +99,8 @@ if !exists("*Autopep8(...)")
               setlocal nomodifiable
               setlocal nu
               setlocal filetype=diff
+            else
+              redraw!
             endif
 
             hi Green ctermfg=green
