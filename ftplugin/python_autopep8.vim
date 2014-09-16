@@ -127,6 +127,6 @@ endif
 if !exists("no_plugin_maps") && !exists("no_autopep8_maps")
     if !hasmapto('Autopep8(')
         noremap <buffer> <F8> :call Autopep8()<CR>
-        command! -nargs=1 -bar Autopep8 call Autopep8(<f-args>) 
+        command! -nargs=? -bar Autopep8 call Autopep8(<f-args>) 
     endif
 endif
