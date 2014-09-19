@@ -1,8 +1,8 @@
 "=========================================================
 " File:        python_autopep8.vim
 " Author:      tell-k <ffk2005[at]gmail.com>
-" Last Change: 23-May-2014.
-" Version:     1.0.6
+" Last Change: 20-Sep-2014.
+" Version:     1.0.7
 " WebPage:     https://github.com/tell-k/vim-autopep8
 " License:     MIT Licence
 "==========================================================
