@@ -94,7 +94,7 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-extensions = ['sphinxjp.themecore']
+extensions = ['sphinxjp.themes.basicstrap']
 html_theme = 'basicstrap'
 
 # Theme options are theme-specific and customize the look and feel of a theme
