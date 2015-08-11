@@ -59,7 +59,7 @@ if !exists("*Autopep8(...)")
         else
             let autopep8_aggressive=""
         endif
-        
+
         if exists("g:autopep8_indent_size")
             let autopep8_indent_size=" --indent-size=".g:autopep8_indent_size
         else
@@ -99,9 +99,8 @@ if !exists("*Autopep8(...)")
               setlocal nomodifiable
               setlocal nu
               setlocal filetype=diff
-            else
-              redraw!
             endif
+            redraw!
 
             hi Green ctermfg=green
             echohl Green
@@ -127,6 +126,6 @@ endif
 if !exists("no_plugin_maps") && !exists("no_autopep8_maps")
     if !hasmapto('Autopep8(')
         noremap <buffer> <F8> :call Autopep8()<CR>
-        command! -nargs=? -bar Autopep8 call Autopep8(<f-args>) 
+        command! -nargs=? -bar Autopep8 call Autopep8(<f-args>)
     endif
 endif
