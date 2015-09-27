@@ -59,7 +59,7 @@ if !exists("*Autopep8(...)")
         else
             let autopep8_aggressive=""
         endif
-        
+
         if exists("g:autopep8_indent_size")
             let autopep8_indent_size=" --indent-size=".g:autopep8_indent_size
         else
@@ -74,20 +74,11 @@ if !exists("*Autopep8(...)")
             " current cursor
             let current_cursor = getpos(".")
             " write to temporary file
-            silent execute "!". execmdline . " \"" . expand('%:p') . "\" > " . tmpfile
             if !exists("g:autopep8_disable_show_diff")
-                silent execute "!". execmdline . " --diff  \"" . expand('%:p') . "\" > " . tmpdiff
+                let diff_cmd = execmdline . " --diff  \"" . expand('%:p') . "\""
+                let diff_output = system(diff_cmd)
             endif
-
-            " current buffer all delete
-            silent execute "%d"
-            " read temp file. and write to current buffer.
-            for line in readfile(tmpfile)
-                call append(index, line)
-                let index = index + 1
-            endfor
-            " remove last linebreak.
-            silent execute ":" . index . "," . index . "s/\\n$//g"
+            silent execute "0,$!" . execmdline . " \"" . expand('%:p') . "\""
             " restore cursor
             call setpos('.', current_cursor)
 
@@ -95,12 +86,10 @@ if !exists("*Autopep8(...)")
             if !exists("g:autopep8_disable_show_diff")
               botright new autopep8
               setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-              silent execute '$read ' . tmpdiff
+              silent execute ':put =diff_output'
               setlocal nomodifiable
               setlocal nu
               setlocal filetype=diff
-            else
-              redraw!
             endif
 
             hi Green ctermfg=green
@@ -127,6 +116,6 @@ endif
 if !exists("no_plugin_maps") && !exists("no_autopep8_maps")
     if !hasmapto('Autopep8(')
         noremap <buffer> <F8> :call Autopep8()<CR>
-        command! -nargs=? -bar Autopep8 call Autopep8(<f-args>) 
+        command! -nargs=? -bar Autopep8 call Autopep8(<f-args>)
     endif
 endif
