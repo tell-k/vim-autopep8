@@ -15,6 +15,11 @@ Installation
 
 Simply put the contents of this repository in your ~/.vim/bundle directory.
 
+But on some platforms the following extra steps might be necessary to enable the plugin to be loaded in vim:
+
+- ensure you have the `~/.vim/plugin` directory
+- either copy or symlink the file `ftplugin/python_autopep8.vim` into the `~/.vim/plugin` directory
+
 Documentation (Read The Docs)
 ==============================
 
