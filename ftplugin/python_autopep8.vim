@@ -1,8 +1,8 @@
 "=========================================================
 " File:        python_autopep8.vim
 " Author:      tell-k <ffk2005[at]gmail.com>
-" Last Change: 28-Sep-2015.
-" Version:     1.0.8
+" Last Change: 20-Sep-2014.
+" Version:     1.0.7
 " WebPage:     https://github.com/tell-k/vim-autopep8
 " License:     MIT Licence
 "==========================================================
@@ -68,31 +68,43 @@ if !exists("*Autopep8(...)")
 
         let execmdline=autopep8_cmd.autopep8_pep8_passes.autopep8_selects.autopep8_ignores.autopep8_max_line_length.autopep8_aggressive.autopep8_indent_size.l:args
 
-        " current cursor
-        let current_cursor = getpos(".")
-        " write to temporary file
-        if !exists("g:autopep8_disable_show_diff")
-            let diff_cmd = execmdline . " --diff  \"" . expand('%:p') . "\""
-            let diff_output = system(diff_cmd)
-        endif
-        silent execute "0,$!" . execmdline . " \"" . expand('%:p') . "\""
-        " restore cursor
-        call setpos('.', current_cursor)
+		" current cursor
+		let current_cursor = getpos(".")
+		" show diff if not explicitly disabled
+		if !exists("g:autopep8_disable_show_diff")
+			let tmpfile = tempname()
+			try
+				" write buffer contents to tmpfile because autopep8 --diff
+				" does not work with standard input
+				silent execute "0,$w! " . tmpfile
+				let diff_cmd = execmdline . " --diff \"" . tmpfile . "\""
+				let diff_output = system(diff_cmd)
+			finally
+				" file close
+				if filewritable(tmpfile)
+					call delete(tmpfile)
+				endif
+			endtry
+		endif
+        " execute autopep8 passing buffer contents as standard input
+		silent execute "0,$!" . execmdline . " -"
+		" restore cursor
+		call setpos('.', current_cursor)
 
-        " show diff
-        if !exists("g:autopep8_disable_show_diff")
-          botright new autopep8
-          setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-          silent execute ':put =diff_output'
-          setlocal nomodifiable
-          setlocal nu
-          setlocal filetype=diff
-        endif
+		" show diff
+		if !exists("g:autopep8_disable_show_diff")
+		  botright new autopep8
+		  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+		  silent execute ':put =diff_output'
+		  setlocal nomodifiable
+		  setlocal nu
+		  setlocal filetype=diff
+		endif
 
-        hi Green ctermfg=green
-        echohl Green
-        echon "Fixed with autopep8 this file."
-        echohl
+		hi Green ctermfg=green
+		echohl Green
+		echon "Fixed with autopep8 this file."
+		echohl
 
     endfunction
 endif
