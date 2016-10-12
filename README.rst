@@ -101,3 +101,9 @@ Disable show diff window
 :: 
 
  let g:autopep8_disable_show_diff=1
+
+Use range from e.g selection
+
+:: 
+
+ let g:autopep8_use_range=1
