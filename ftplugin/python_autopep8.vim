@@ -15,7 +15,7 @@ endif
 let b:loaded_autopep8_ftplugin=1
 
 if !exists("*Autopep8(...)")
-    function Autopep8(...)
+    function Autopep8(...) range
 
         let l:args = get(a:, 1, '')
 
@@ -54,6 +54,12 @@ if !exists("*Autopep8(...)")
             let autopep8_max_line_length=""
         endif
 
+        if exists("g:autopep8_use_range")
+            let autopep8_range=" --range ".a:firstline." ".a:lastline
+        else
+            let autopep8_range=""
+        endif
+
         if exists("g:autopep8_aggressive")
             let autopep8_aggressive=" --aggressive "
         else
@@ -66,7 +72,7 @@ if !exists("*Autopep8(...)")
             let autopep8_indent_size=""
         endif
 
-        let execmdline=autopep8_cmd.autopep8_pep8_passes.autopep8_selects.autopep8_ignores.autopep8_max_line_length.autopep8_aggressive.autopep8_indent_size.l:args
+        let execmdline=autopep8_cmd.autopep8_pep8_passes.autopep8_selects.autopep8_ignores.autopep8_max_line_length.autopep8_aggressive.autopep8_indent_size.autopep8_range.l:args
 
 		" current cursor
 		let current_cursor = getpos(".")
@@ -115,6 +121,6 @@ endif
 if !exists("no_plugin_maps") && !exists("no_autopep8_maps")
     if !hasmapto('Autopep8(')
         noremap <buffer> <F8> :call Autopep8()<CR>
-        command! -nargs=? -bar Autopep8 call Autopep8(<f-args>)
+        command! -range=% -nargs=? -bar Autopep8 call Autopep8(<f-args>)
     endif
 endif
