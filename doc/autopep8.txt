@@ -2,14 +2,15 @@
 
 Author: tell-k  (ffk2005 AT gmail DOT com)
 For Vim version 7 and above
-Last change: 2014 May 23
+Last change: 2017 Feb 26
 
 1. Overview         |autopep8-overview|
 2. Required         |autopep8-required|
 3. Installation     |autopep8-installation|
 4. Usage            |autopep8-usage|
 5. Customization    |autopep8-customization|
-6. License          |autopep8-license|
+6. Tips             |autopep8-tips|
+7. License          |autopep8-license|
 
 ==============================================================================
 1. Overview                                                *autopep8-overview*
@@ -33,11 +34,6 @@ Simply put the contents of this repository in your ~/.vim/bundle directory.
 ==============================================================================
 4. Usage                                                      *autopep8-usage*
 
-shortcut
-
-1. Open Python file.
-2. Press <F8> to run autopep8 on it
-
 call function
 
 >
@@ -53,6 +49,15 @@ with arguments
 
  :call Autopep8(" --range 1 5")
 <
+
+range selection
+
+>
+ :'<,'>Autopep8
+<
+
+Caution. This plugin remove default <F8> key mapping since v1.1.0.
+It is the user's business to decide which key to be mapped to.
 
 ==============================================================================
 5. Customization                                      *autopep8-customization*
@@ -99,7 +104,24 @@ Disable show diff window
  let g:autopep8_disable_show_diff=1
 <
 
+Chose diff window type. (default: horizontal)
+
+>
+ let g:autopep8_diff_type='horizontal'
+ let g:autopep8_diff_type='vertical'
+<
+
 ==============================================================================
-6. license                                                  *autopep8-license*
+6. Tips                                                        *autopep8-tips*
+
+If you want to use 「=」 with autopep8. It's good to set it as follows.
+But please be careful as "vim-autopep8" setting will not be inherited.
+
+>
+ autocmd BufRead,BufNewFile *.py set equalprg=autopep8\ -
+<
+
+==============================================================================
+7. license                                                  *autopep8-license*
 
 MIT license

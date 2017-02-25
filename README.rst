@@ -28,11 +28,6 @@ Documentation (Read The Docs)
 Usage
 =====================
 
-shortcut
-
-1. Open Python file.
-2. Press <F8> to run autopep8 on it
-
 call function
 
 :: 
@@ -49,16 +44,27 @@ with arguments
 
  :call Autopep8(" --range 1 5")
 
-Customization
-=====================
-
-If you don't want to use the `<F8>` key for autopep8, simply remap it to
-another key.  It autodetects whether it has been remapped and won't register
-the `<F8>` key if so.  For example, to remap it to `<F3>` instead, use:
+range selection
 
 ::
 
- autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
+ :'<,'>Autopep8
+
+
+.. caution::
+
+  This plugin remove default <F8> key mapping since v1.1.0.
+  It is the user's business to decide which key to be mapped to.
+
+Customization
+=====================
+
+For example, to map it to `<F8>`:
+
+::
+
+ autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
+
 
 Do not fix these errors/warnings (default: E226,E24,W6)
 
@@ -88,7 +94,11 @@ Enable possibly unsafe changes (E711, E712) (default: non defined)
 
 :: 
 
+ # add aggressive option (--aggressive)
  let g:autopep8_aggressive=1 
+
+ # add more aggressive options (--aggressive --aggressive)
+ let g:autopep8_aggressive=2
 
 Number of spaces per indent level (default: 4)
 
@@ -102,8 +112,32 @@ Disable show diff window
 
  let g:autopep8_disable_show_diff=1
 
-Use range from e.g selection
+Chose diff window type. (default: horizontal)
 
 :: 
 
- let g:autopep8_use_range=1
+ # default
+ let g:autopep8_diff_type='horizontal'
+
+ let g:autopep8_diff_type='vertical'
+
+Tips
+=====================
+
+If you want to use 「=」 with autopep8. It's good to set it as follows.
+But please be careful as "vim-autopep8" setting will not be inherited.
+
+::
+
+ autocmd BufRead,BufNewFile *.py set equalprg=autopep8\ -
+
+
+Author
+==============================
+
+* tell-k
+
+License
+==============================
+
+* MIT License
