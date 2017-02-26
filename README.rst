@@ -129,7 +129,7 @@ But please be careful as "vim-autopep8" setting will not be inherited.
 
 ::
 
- autocmd BufRead,BufNewFile *.py set equalprg=autopep8\ -
+ autocmd FileType python set equalprg=autopep8\ -
 
 
 Author
