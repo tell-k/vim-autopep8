@@ -73,6 +73,12 @@ if !exists("*Autopep8(...)")
             let autopep8_aggressive=""
         endif
 
+        if exists("g:autopep8_aggressive_aggresive")
+            let autopep8_aggressive_aggressive=" --aggressive --aggressive "
+        else
+            let autopep8_aggressive_aggressive=""
+        endif
+
         if exists("g:autopep8_indent_size")
             let autopep8_indent_size=" --indent-size=".g:autopep8_indent_size
         else
