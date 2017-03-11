@@ -130,6 +130,18 @@ if !exists("*Autopep8(...)")
         echohl
 
     endfunction
+    
+    " Create an operator, if vim-operator-user is installed.
+    " map <leader>x <Plug>(operator-autopep8)
+    try
+        call operator#user#define('autopep8', 'Op_autopep8')
+        function! Op_autopep8(motion_wise)
+            call Autopep8(join([" --range ", line("'["), " ", line("']")]))
+        endfunction
+    catch /^Vim\%((\a\+)\)\=:E117/
+        " vim-operator-user is not installed
+    endtry
+
 endif
 
 if !exists("no_plugin_maps") && !exists("no_autopep8_maps")
