@@ -1,8 +1,8 @@
 "=========================================================
 " File:        python_autopep8.vim
 " Author:      tell-k <ffk2005[at]gmail.com>
-" Last Change: 26-Feb-2017.
-" Version:     1.1.0
+" Last Change: 12-Oct-2017.
+" Version:     1.1.1
 " WebPage:     https://github.com/tell-k/vim-autopep8
 " License:     MIT Licence
 "==========================================================
@@ -13,6 +13,7 @@ if exists("b:loaded_autopep8_ftplugin")
     finish
 endif
 let b:loaded_autopep8_ftplugin=1
+let b:autopep8_current_cursor = [0, 1, 1, 0]
 
 if !exists("*Autopep8(...)")
     function Autopep8(...) range
@@ -55,12 +56,16 @@ if !exists("*Autopep8(...)")
         endif
 
         let autopep8_range = ""
+        let current_cursor = b:autopep8_current_cursor
         if l:args != ""
             let autopep8_range = " ".l:args
+            let current_cursor = getpos(".")
         elseif a:firstline == a:lastline
             let autopep8_range = ""
+            let current_cursor = [0, a:firstline, 1, 0]
         elseif a:firstline != 1 || a:lastline != line('$')
             let autopep8_range = " --range ".a:firstline." ".a:lastline
+            let current_cursor = [0, a:firstline, 1, 0]
         endif
 
         if exists("g:autopep8_aggressive")
@@ -88,7 +93,6 @@ if !exists("*Autopep8(...)")
         let execmdline=autopep8_cmd.autopep8_pep8_passes.autopep8_selects.autopep8_ignores.autopep8_max_line_length.autopep8_aggressive.autopep8_indent_size.autopep8_range
 
         " current cursor
-        let current_cursor = getpos(".")
         " show diff if not explicitly disabled
         if !exists("g:autopep8_disable_show_diff")
             let tmpfile = tempname()
@@ -134,6 +138,6 @@ endif
 
 if !exists("no_plugin_maps") && !exists("no_autopep8_maps")
     if !hasmapto('Autopep8(')
-        command! -range=% -nargs=? -bar Autopep8 <line1>,<line2>call Autopep8(<f-args>)
+        command! -range=% -nargs=? -bar Autopep8 let b:autopep8_current_cursor = getpos(".") | <line1>,<line2>call Autopep8(<f-args>)
     endif
 endif
