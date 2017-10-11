@@ -3,3 +3,4 @@
 *.swn
 *.pyc
 docs/_build/*
+doc/tags
