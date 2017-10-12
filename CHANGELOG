@@ -1,0 +1,60 @@
+1.1.1 (Oct 12, 2017)
+----------------------
+
+* Fixed auto go to first line. (https://github.com/tell-k/vim-autopep8/pull/33)
+
+1.1.0 (Feb 26, 2017)
+----------------------
+
+* Support more aggresive options 
+* Support show diff in vertical split 
+* Support range selection 
+* Remove default <F8> key mapping.
+
+1.0.7 (Sep 09, 2014)
+----------------------
+
+* Autopep8 broken. (https://github.com/tell-k/vim-autopep8/pull/15)
+* Redraw under disable_show_diff mode. (https://github.com/tell-k/vim-autopep8/pull/13)
+
+1.0.6 (May 23, 2014)
+----------------------
+
+* No need to file scope variables. (https://github.com/tell-k/vim-autopep8/issues/11)
+* Add ability to pass commandline args. (https://github.com/tell-k/vim-autopep8/pull/10)
+* fixed typo. (https://github.com/tell-k/vim-autopep8/pull/9)
+
+1.0.5 (May 05, 2014)
+----------------------
+
+* add "autopep8_indent_size" option. (https://github.com/tell-k/vim-autopep8/issues/8)
+
+1.0.4 (Mar 02, 2014)
+----------------------
+
+* Changed to green the color of the "fixes comment" 
+* Function ":Autopep8" becomes callable.
+
+1.0.3 (Dec 30, 2013)
+----------------------
+
+* fixed bug & typo. 
+* when filename or filepath contain whitespace, cause error. (https://github.com/tell-k/vim-autopep8/issues/5)
+* typo. 'aggresive' =>
+'aggressive'.(https://github.com/tell-k/vim-autopep8/issues/7 )
+
+1.0.2 (Oct 25, 2013)
+----------------------
+
+* fixed typo. (https://github.com/tell-k/vim-autopep8/pull/4)
+
+1.0.1 (Sep 16, 2013)
+----------------------
+
+* add "autopep8_disable_show_diff" option. default is 0. 
+* add help document. available "help autopep8". 
+
+1.0.0 (Jun 06, 2013)
+----------------------
+
+* Initial release
