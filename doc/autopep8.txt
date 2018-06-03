@@ -56,7 +56,7 @@ range selection
  :'<,'>Autopep8
 <
 
-Caution. This plugin remove default <F8> key mapping since v1.1.0.
+Caution. This plugin remove default <F8> key mapping since v1.2.0.
 It is the user's business to decide which key to be mapped to.
 
 ==============================================================================
