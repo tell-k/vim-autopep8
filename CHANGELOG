@@ -1,3 +1,8 @@
+1.2.0 (Jun 3, 2018)
+----------------------
+
+* Add new option "autopep8_on_save". (https://github.com/tell-k/vim-autopep8/pull/35) Thanks to @ahakanbaba
+
 1.1.1 (Oct 12, 2017)
 ----------------------
 

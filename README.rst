@@ -121,6 +121,14 @@ Chose diff window type. (default: horizontal)
 
  let g:autopep8_diff_type='vertical'
 
+
+Automatically format every time saving a file.
+
+::
+
+ let g:autopep8_on_save = 1
+
+
 Tips
 =====================
 
