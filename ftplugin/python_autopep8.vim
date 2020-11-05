@@ -60,9 +60,6 @@ if !exists("*Autopep8(...)")
         if l:args != ""
             let autopep8_range = " ".l:args
             let current_cursor = getpos(".")
-        elseif a:firstline == a:lastline
-            let autopep8_range = ""
-            let current_cursor = [0, a:firstline, 1, 0]
         elseif a:firstline != 1 || a:lastline != line('$')
             let autopep8_range = " --range ".a:firstline." ".a:lastline
             let current_cursor = [0, a:firstline, 1, 0]
