@@ -84,13 +84,19 @@ if !exists("*Autopep8(...)")
             let autopep8_indent_size=""
         endif
 
+        if exists("g:autopep8_experimental") && (g:autopep8_experimental)
+            let autopep8_experimental=" --experimental"
+        else
+            let autopep8_experimental=""
+        endif
+
         if exists("g:autopep8_diff_type") && g:autopep8_diff_type == "vertical"
             let autopep8_diff_type="vertical"
         else
             let autopep8_diff_type="horizontal"
         endif
 
-        let execmdline=autopep8_cmd.autopep8_pep8_passes.autopep8_selects.autopep8_ignores.autopep8_max_line_length.autopep8_aggressive.autopep8_indent_size.autopep8_range
+        let execmdline=autopep8_cmd.autopep8_pep8_passes.autopep8_selects.autopep8_ignores.autopep8_max_line_length.autopep8_aggressive.autopep8_indent_size.autopep8_range.autopep8_experimental
 
         " current cursor
         " show diff if not explicitly disabled

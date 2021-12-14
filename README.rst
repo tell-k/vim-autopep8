@@ -121,6 +121,13 @@ Chose diff window type. (default: horizontal)
 
  let g:autopep8_diff_type='vertical'
 
+Enable/disable autopep8 experimental support (default: disabled)
+
+::
+
+ let g:autopep8_experimental=1
+ let g:autopep8_experimental=0
+
 
 Automatically format every time saving a file.
 
